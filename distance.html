@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>simple calculator</title>
+        <link rel = "stylesheet" href = "style.css">
+
+    </head>
+
+
+
+    <body>
+        <script src = "script.js"></script>
+        <div class="container">
+            <p>Distance Converter</p>
+            <div class = "input">
+                <input class = "disNum" type ="number" id="disNum" placeholder = "Enter number">
+            </div>
+
+            <div class = "dropdown">
+                <label for="fromDistance">from</label>
+                <select name="fromDistance" id="fromDistance"> 
+                    <option value="inch">Inch (in)</option>
+                    <option value="centimetre">Centimetre (cm)</option>
+                    <option value="metre">Metre (m)</option>
+                    <option value="kilometre">Kilometre (km)</option>
+                </select>
+                <label for="toDistance">to</label>
+                <select name="toDistance" id="toDistance">
+                    <option value="inch">Inch (in)</option>
+                    <option value="centimetre">Centimetre (cm)</option>
+                    <option value="metre">Metre (m)</option>
+                    <option value="kilometre">Kilometre (km)</option>
+                </select>
+            </div>
+            
+            <div class="convertBtn">
+              <button id = "clicktoconvertDis" onclick="distanceCalculate()"> Click here to convert </button>
+            </div>
+
+            <div class="result">
+                <input type ="text" id="distanceResult" readonly>
+        
+
+            </div>
+           
+            
+
+
+        </div>
+    </body>
+</html>

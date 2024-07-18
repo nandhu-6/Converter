@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>simple calculator</title>
+        <link rel = "stylesheet" href = "style.css">
+
+    </head>
+
+
+
+    <body>
+        <script src = "script.js"></script>
+        <div class="container">
+            <p>Weight Converter</p>
+
+            <div class = "input">
+                <input class = "weiNum" type ="number" id="weiNum" placeholder = "Enter number">
+            </div>
+
+            <div class = "dropdown">
+                <label for="fromWeight">from</label>
+                <select name="fromWeight" id="fromWeight"> 
+                    <option value="milligram">Milligram (mg)</option>
+                    <option value="gram">Gram (g)</option>
+                    <option value="kilogram">Kilogram (kg)</option>
+                    <option value="ton">Ton (t)</option>
+                </select>
+                <label for="toWeight">to</label>
+                <select name="toWeight" id="toWeight">
+                    <option value="milligram">Milligram (mg)</option>
+                    <option value="gram">Gram (g)</option>
+                    <option value="kilogram">Kilogram (kg)</option>
+                    <option value="ton">Ton (t)</option>
+                </select>
+            </div>
+            
+            <div class="convertBtn">
+              <button id = "clicktoconvertWei" onclick="weightCalculate()"> Click here to convert </button>
+            </div>
+
+            <div class="result">
+                <input type ="text" id="weightResult" readonly>
+        
+
+            </div>
+           
+            
+
+
+        </div>
+    </body>
+</html>
