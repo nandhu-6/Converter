@@ -132,5 +132,45 @@ function calculate(symbol){
     document.getElementById("weightResult").value = weightResult;
     
     }
-    
+
+
+    //currency calcualter
+    document.addEventListener('DOMContentLoaded', (event) => {
+        let select = document.querySelectorAll('.currency');
+        let btn = document.getElementById('clicktoconvertCurrency');
+        let input = document.getElementById('inputCurrency');
+        
+        fetch('https://api.frankfurter.app/currencies')
+            .then(currResult => currResult.json())
+            .then(currResult => displayDropDown(currResult));
+
+            function displayDropDown(currResult) {
+                let curr = Object.entries(currResult);
+                for (let i = 0; i < curr.length; i++) {
+                    let opt = `<option value="${curr[i][0]}">${curr[i][0]}</option>`;
+                    select[0].innerHTML += opt;
+                    select[1].innerHTML += opt;
+                }
+            }
+
+            btn.addEventListener('click', () => {
+                let curr1 = select[0].value;
+                let curr2 = select[1].value;
+                let inputVal = input.value;
+                if (curr1 === curr2) {
+                    alert("Choose different currencies");
+                } else {
+                    convert(curr1, curr2, inputVal);
+                }
+            });
+            
+            function convert(curr1, curr2, inputVal) {
+                const host = 'api.frankfurter.app';
+                fetch(`https://${host}/latest?amount=${inputVal}&from=${curr1}&to=${curr2}`)
+                    .then(resp => resp.json())
+                    .then((data) => {
+                        document.getElementById('currResult').value = Object.values(data.rates)[0];
+                    });
+            }
+        });
     
