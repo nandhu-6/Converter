@@ -98,6 +98,9 @@ function calculate(symbol){
         else if (fromWeight == "milligram" && toWeight =="ton"){
             weightResult = input / 1000000000;
         }
+        else if (fromWeight == "milligram" && toWeight =="pound"){
+            weightResult = input / 500000;
+        }
         else if (fromWeight == "gram" && toWeight =="milligram"){
             weightResult = input * 1000;
         }
@@ -106,6 +109,9 @@ function calculate(symbol){
         }
         else if (fromWeight == "gram" && toWeight =="ton"){
             weightResult = input / 1000000;
+        }
+        else if (fromWeight == "gram" && toWeight =="pound"){
+            weightResult = input / 500;
         }
         else if (fromWeight == "kilogram" && toWeight =="milligram"){
             weightResult = input * 1000000;
@@ -116,6 +122,9 @@ function calculate(symbol){
         else if (fromWeight == "kilogram" && toWeight =="ton"){
             weightResult = input / 1000;
         }
+        else if (fromWeight == "kilogram" && toWeight =="pound"){
+            weightResult = input * 2;
+        }
         else if (fromWeight == "ton" && toWeight =="milligram"){
             weightResult = input * 1000000000;
         }
@@ -124,6 +133,21 @@ function calculate(symbol){
         }
         else if (fromWeight == "ton" && toWeight =="kilogram"){
             weightResult = input * 1000;
+        }
+        else if (fromWeight == "ton" && toWeight =="pound"){
+            weightResult = input * 2000;
+        }
+        else if (fromWeight == "pound" && toWeight =="milligram"){
+            weightResult = input * 500000;
+        }
+        else if (fromWeight == "pound" && toWeight =="gram"){
+            weightResult = input * 500;
+        }
+        else if (fromWeight == "pound" && toWeight =="kilogram"){
+            weightResult = input / 2;
+        }
+        else if (fromWeight == "pound" && toWeight =="ton"){
+            weightResult = input / 2000;
         }
         else{
             weightResult = input;
@@ -163,7 +187,7 @@ function calculate(symbol){
                     convert(curr1, curr2, inputVal);
                 }
             });
-            
+
             function convert(curr1, curr2, inputVal) {
                 const host = 'api.frankfurter.app';
                 fetch(`https://${host}/latest?amount=${inputVal}&from=${curr1}&to=${curr2}`)
